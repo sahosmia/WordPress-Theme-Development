@@ -2,8 +2,8 @@
 <main>
     <section class="about-hero">
         <div class="container">
-            <h1>About TechSolutions Pro</h1>
-            <p>Innovative IT solutions for the modern enterprise</p>
+            <h1 class="selector-about-page-hero-title"><?php echo esc_html(get_theme_mod('my_theme_about_page_hero_title', 'About TechSolutions Pro')); ?></h1>
+            <p class="selector-about-page-hero-subtitle"><?php echo esc_html(get_theme_mod('my_theme_about_page_hero_subtitle', 'Innovative IT solutions for the modern enterprise')); ?></p>
         </div>
     </section>
 
@@ -11,8 +11,8 @@
         <div class="container">
             <div class="story-grid">
                 <div class="story-content">
-                    <h2>Our Journey</h2>
-                    <p>Founded in 2015, TechSolutions Pro started with a mission to democratize enterprise-grade IT services for businesses of all sizes. Today, we serve over 120 clients globally, providing cutting-edge solutions in cloud computing, cybersecurity, and software development.</p>
+                    <h2 class="selector-about-page-journey-title"><?php echo esc_html(get_theme_mod('my_theme_about_page_journey_title', 'Our Journey')); ?></h2>
+                    <p class="selector-about-page-journey-content"><?php echo wp_kses_post(get_theme_mod('my_theme_about_page_journey_content', 'Founded in 2015, TechSolutions Pro started with a mission to democratize enterprise-grade IT services for businesses of all sizes. Today, we serve over 120 clients globally, providing cutting-edge solutions in cloud computing, cybersecurity, and software development.')); ?></p>
                     <h3>Our Mission</h3>
                     <p>To empower businesses with innovative technology solutions that drive growth, efficiency, and security.</p>
                     <h3>Our Vision</h3>

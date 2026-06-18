@@ -7,15 +7,15 @@
                 <div class="hero-grid">
                     <div class="hero-content">
                         <?php if ($badge = get_theme_mod('my_theme_hero_badge', 'Premium IT Services')) : ?>
-                            <span class="badge"><?php echo esc_html($badge); ?></span>
+                            <span class="badge selector-hero-badge"><?php echo esc_html($badge); ?></span>
                         <?php endif; ?>
-                        <h1>
+                        <h1 class="selector-hero-title">
                             <?php
                             $title = get_theme_mod('my_theme_hero_title', 'Future-Ready <span>Tech Solutions</span> for Your Business');
                             echo wp_kses($title, array('span' => array()));
                             ?>
                         </h1>
-                        <p class="hero-subtitle">
+                        <p class="hero-subtitle selector-hero-subtitle">
                             <?php
                             $subtitle = get_theme_mod('my_theme_hero_subtitle', 'We provide cutting-edge IT services including cloud computing, cybersecurity, software development, and 24/7 technical support.');
                             echo esc_html($subtitle);
@@ -28,14 +28,14 @@
                             $btn1_text = get_theme_mod('my_theme_hero_btn_text', 'Get Started →');
                             $btn1_url  = get_theme_mod('my_theme_hero_btn_url', '#contact');
                             if (! empty($btn1_text)) : ?>
-                                <a href="<?php echo esc_url($btn1_url); ?>" class="btn-primary"><?php echo esc_html($btn1_text); ?></a>
+                                <a href="<?php echo esc_url($btn1_url); ?>" class="btn-primary selector-hero-btn1"><?php echo esc_html($btn1_text); ?></a>
                             <?php endif; ?>
 
                             <?php
                             $btn2_text = get_theme_mod('my_theme_hero_btn2_text', 'Explore Services');
                             $btn2_url  = get_theme_mod('my_theme_hero_btn2_url', '#services');
                             if (! empty($btn2_text)) : ?>
-                                <a href="<?php echo esc_url($btn2_url); ?>" class="btn-outline"><?php echo esc_html($btn2_text); ?></a>
+                                <a href="<?php echo esc_url($btn2_url); ?>" class="btn-outline selector-hero-btn2"><?php echo esc_html($btn2_text); ?></a>
                             <?php endif; ?>
                         </div>
 
@@ -46,7 +46,7 @@
                                 $stat = get_theme_mod("my_theme_hero_stat{$i}");
                                 if (! empty($stat)) {
                                     $parts = explode(' ', $stat, 2);
-                                    echo '<div>';
+                                    echo '<div class="selector-hero-stat-' . $i . '">';
                                     if (count($parts) == 2) {
                                         echo '<strong>' . esc_html($parts[0]) . '</strong><br>' . esc_html($parts[1]);
                                     } else {
@@ -85,11 +85,11 @@
 
                         <!-- Section Tag/Badge Element -->
                         <?php if ($about_tag = get_theme_mod('my_theme_about_tag', 'About Us')) : ?>
-                            <span class="section-tag"><?php echo esc_html($about_tag); ?></span>
+                            <span class="section-tag selector-about-tag"><?php echo esc_html($about_tag); ?></span>
                         <?php endif; ?>
 
                         <!-- Main Section Heading Header -->
-                        <h2>
+                        <h2 class="selector-about-title">
                             <?php
                             $about_title = get_theme_mod('my_theme_about_title', 'We Deliver Excellence in IT Services Since 2015');
                             echo esc_html($about_title);
@@ -97,7 +97,7 @@
                         </h2>
 
                         <!-- Core Editorial Context Narrative Description -->
-                        <p class="about-desc-text">
+                        <p class="about-desc-text selector-about-desc">
                             <?php
                             $about_desc = get_theme_mod('my_theme_about_desc', 'TechSolutions Pro is a leading IT service provider helping businesses transform digitally. Our team of 50+ experts delivers innovative solutions tailored to your needs.');
                             echo wp_kses_post($about_desc);
@@ -110,7 +110,7 @@
                             for ($i = 1; $i <= 4; $i++) {
                                 $feature = get_theme_mod("my_theme_about_feature{$i}");
                                 if (! empty($feature)) {
-                                    echo '<div>✅ ' . esc_html($feature) . '</div>';
+                                    echo '<div class="selector-about-feature-' . $i . '">✅ ' . esc_html($feature) . '</div>';
                                 }
                             }
                             ?>
@@ -121,7 +121,7 @@
                         $about_btn_text = get_theme_mod('my_theme_about_btn_text', 'Learn More About Us →');
                         $about_btn_url  = get_theme_mod('my_theme_about_btn_url', 'about.php');
                         if (! empty($about_btn_text)) : ?>
-                            <a href="<?php echo esc_url($about_btn_url); ?>" class="btn-outline"><?php echo esc_html($about_btn_text); ?></a>
+                            <a href="<?php echo esc_url($about_btn_url); ?>" class="btn-outline selector-about-btn"><?php echo esc_html($about_btn_text); ?></a>
                         <?php endif; ?>
                     </div>
 
@@ -142,85 +142,99 @@
     <?php endif; ?>
 
     <!-- Services Section -->
+    <?php if (get_theme_mod('my_theme_services_enabled', true)) : ?>
     <section id="services" class="services">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">What We Offer</span>
-                <h2>Comprehensive IT Services</h2>
-                <p>End-to-end technology solutions to accelerate your business growth</p>
+                <span class="section-tag selector-services-tag"><?php echo esc_html(get_theme_mod('my_theme_services_tag', 'What We Offer')); ?></span>
+                <h2 class="selector-services-title"><?php echo esc_html(get_theme_mod('my_theme_services_title', 'Comprehensive IT Services')); ?></h2>
+                <p class="selector-services-subtitle"><?php echo esc_html(get_theme_mod('my_theme_services_subtitle', 'End-to-end technology solutions to accelerate your business growth')); ?></p>
             </div>
             <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">☁️</div>
-                    <h3>Cloud Computing</h3>
-                    <p>AWS, Azure, Google Cloud migration and management services.</p>
-                    <a href="#">Learn More →</a>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🔒</div>
-                    <h3>Cybersecurity</h3>
-                    <p>Advanced threat protection, security audits, and compliance.</p>
-                    <a href="#">Learn More →</a>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">💻</div>
-                    <h3>Software Dev</h3>
-                    <p>Custom web, mobile apps, and enterprise software solutions.</p>
-                    <a href="#">Learn More →</a>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">📊</div>
-                    <h3>Data Analytics</h3>
-                    <p>Business intelligence, big data, and predictive analytics.</p>
-                    <a href="#">Learn More →</a>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🖥️</div>
-                    <h3>IT Consulting</h3>
-                    <p>Strategic IT planning and digital transformation advisory.</p>
-                    <a href="#">Learn More →</a>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🔧</div>
-                    <h3>24/7 Support</h3>
-                    <p>Round-the-clock technical support and maintenance.</p>
-                    <a href="#">Learn More →</a>
-                </div>
+                <?php
+                $args = array(
+                    'post_type'      => 'service',
+                    'posts_per_page' => 6,
+                    'order'          => 'ASC',
+                );
+                $services_query = new WP_Query($args);
+
+                if ($services_query->have_posts()) :
+                    while ($services_query->have_posts()) : $services_query->the_post();
+                        $icon = get_post_meta(get_the_ID(), '_service_icon', true);
+                ?>
+                    <div class="service-card">
+                        <div class="service-icon"><?php echo esc_html($icon); ?></div>
+                        <h3><?php the_title(); ?></h3>
+                        <p><?php the_excerpt(); ?></p>
+                        <a href="<?php the_permalink(); ?>">Learn More →</a>
+                    </div>
+                <?php
+                    endwhile;
+                    wp_reset_postdata();
+                else :
+                    // Fallback to static content if no services are found
+                    $services_defaults = array(
+                        1 => array('icon' => '☁️', 'title' => 'Cloud Computing', 'desc' => 'AWS, Azure, Google Cloud migration and management services.', 'url' => '#'),
+                        2 => array('icon' => '🔒', 'title' => 'Cybersecurity', 'desc' => 'Advanced threat protection, security audits, and compliance.', 'url' => '#'),
+                        3 => array('icon' => '💻', 'title' => 'Software Dev', 'desc' => 'Custom web, mobile apps, and enterprise software solutions.', 'url' => '#'),
+                        4 => array('icon' => '📊', 'title' => 'Data Analytics', 'desc' => 'Business intelligence, big data, and predictive analytics.', 'url' => '#'),
+                        5 => array('icon' => '🖥️', 'title' => 'IT Consulting', 'desc' => 'Strategic IT planning and digital transformation advisory.', 'url' => '#'),
+                        6 => array('icon' => '🔧', 'title' => '24/7 Support', 'desc' => 'Round-the-clock technical support and maintenance.', 'url' => '#'),
+                    );
+                    foreach ($services_defaults as $i => $data) :
+                ?>
+                    <div class="service-card">
+                        <div class="service-icon selector-service-icon-<?php echo $i; ?>"><?php echo esc_html($data['icon']); ?></div>
+                        <h3 class="selector-service-title-<?php echo $i; ?>"><?php echo esc_html($data['title']); ?></h3>
+                        <p class="selector-service-desc-<?php echo $i; ?>"><?php echo wp_kses_post($data['desc']); ?></p>
+                        <a href="<?php echo esc_url($data['url']); ?>">Learn More →</a>
+                    </div>
+                <?php
+                    endforeach;
+                endif;
+                ?>
             </div>
         </div>
     </section>
+    <?php endif; ?>
 
     <!-- Why Choose Us Section -->
+    <?php if (get_theme_mod('my_theme_why_choose_enabled', true)) : ?>
     <section id="why-us" class="why-choose">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">Why Choose Us</span>
-                <h2>What Makes Us Different</h2>
+                <span class="section-tag selector-why-tag"><?php echo esc_html(get_theme_mod('my_theme_why_choose_tag', 'Why Choose Us')); ?></span>
+                <h2 class="selector-why-title"><?php echo esc_html(get_theme_mod('my_theme_why_choose_title', 'What Makes Us Different')); ?></h2>
             </div>
             <div class="choose-grid">
-                <div class="choose-item">
-                    <div class="choose-icon">⚡</div>
-                    <h3>Fast Delivery</h3>
-                    <p>Agile methodology ensures quick turnaround times.</p>
-                </div>
-                <div class="choose-item">
-                    <div class="choose-icon">💎</div>
-                    <h3>Quality Assurance</h3>
-                    <p>Rigorous testing and quality checks at every stage.</p>
-                </div>
-                <div class="choose-item">
-                    <div class="choose-icon">🤝</div>
-                    <h3>Dedicated Support</h3>
-                    <p>Personal account manager and 24/7 assistance.</p>
-                </div>
-                <div class="choose-item">
-                    <div class="choose-icon">💰</div>
-                    <h3>Best Value</h3>
-                    <p>Competitive pricing with enterprise-grade solutions.</p>
-                </div>
+                <?php
+                $why_choose_defaults = array(
+                    1 => array('icon' => '⚡', 'title' => 'Fast Delivery', 'desc' => 'Agile methodology ensures quick turnaround times.'),
+                    2 => array('icon' => '💎', 'title' => 'Quality Assurance', 'desc' => 'Rigorous testing and quality checks at every stage.'),
+                    3 => array('icon' => '🤝', 'title' => 'Dedicated Support', 'desc' => 'Personal account manager and 24/7 assistance.'),
+                    4 => array('icon' => '💰', 'title' => 'Best Value', 'desc' => 'Competitive pricing with enterprise-grade solutions.'),
+                );
+                for ($i = 1; $i <= 4; $i++) {
+                    $icon  = get_theme_mod("my_theme_why_choose_{$i}_icon", $why_choose_defaults[$i]['icon']);
+                    $title = get_theme_mod("my_theme_why_choose_{$i}_title", $why_choose_defaults[$i]['title']);
+                    $desc  = get_theme_mod("my_theme_why_choose_{$i}_desc", $why_choose_defaults[$i]['desc']);
+
+                    if ($title) :
+                ?>
+                    <div class="choose-item">
+                        <div class="choose-icon selector-why-icon-<?php echo $i; ?>"><?php echo esc_html($icon); ?></div>
+                        <h3 class="selector-why-title-<?php echo $i; ?>"><?php echo esc_html($title); ?></h3>
+                        <p class="selector-why-desc-<?php echo $i; ?>"><?php echo wp_kses_post($desc); ?></p>
+                    </div>
+                <?php
+                    endif;
+                }
+                ?>
             </div>
         </div>
     </section>
+    <?php endif; ?>
 
     <?php if (get_theme_mod('my_theme_testimonials_enabled', true)) : ?>
         <section id="testimonials" class="testimonials">
@@ -344,16 +358,17 @@
     <?php endif; ?>
 
     <!-- Contact Section -->
+    <?php if (get_theme_mod('my_theme_contact_enabled', true)) : ?>
     <section id="contact" class="contact">
         <div class="container">
             <div class="contact-grid">
                 <div class="contact-info">
-                    <h2>Let's Discuss Your Project</h2>
-                    <p>Ready to transform your business with cutting-edge IT solutions?</p>
+                    <h2 class="selector-contact-title"><?php echo esc_html(get_theme_mod('my_theme_contact_title', "Let's Discuss Your Project")); ?></h2>
+                    <p class="selector-contact-desc"><?php echo esc_html(get_theme_mod('my_theme_contact_desc', 'Ready to transform your business with cutting-edge IT solutions?')); ?></p>
                     <div class="contact-details">
-                        <div>📞 +1 (555) 123-4567</div>
-                        <div>✉️ hello@techsolutions.com</div>
-                        <div>📍 123 Tech Street, Silicon Valley, CA</div>
+                        <div class="selector-contact-phone">📞 <?php echo esc_html(get_theme_mod('my_theme_contact_phone', '+1 (555) 123-4567')); ?></div>
+                        <div class="selector-contact-email">✉️ <?php echo esc_html(get_theme_mod('my_theme_contact_email', 'hello@techsolutions.com')); ?></div>
+                        <div class="selector-contact-address">📍 <?php echo esc_html(get_theme_mod('my_theme_contact_address', '123 Tech Street, Silicon Valley, CA')); ?></div>
                     </div>
                 </div>
                 <form class="contact-form">
@@ -365,5 +380,6 @@
             </div>
         </div>
     </section>
+    <?php endif; ?>
 </main>
 <?php get_footer(); ?>

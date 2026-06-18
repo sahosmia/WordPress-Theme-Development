@@ -452,6 +452,176 @@ p { color: #4a5568; margin-bottom: 1rem; }
     border-top: 1px solid #1e293b;
 }
 
+/* About Page Styling */
+.about-hero {
+    padding: 100px 0;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    text-align: center;
+}
+
+.about-hero h1 {
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.about-hero p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.25rem;
+}
+
+.company-story {
+    padding: 80px 0;
+}
+
+.story-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.story-image .image-placeholder {
+    font-size: 5rem;
+    background: #f8fafc;
+    border-radius: 20px;
+    padding: 4rem;
+    text-align: center;
+}
+
+.company-values {
+    padding: 80px 0;
+    background: #f8fafc;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.value-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+.value-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.team-showcase {
+    padding: 80px 0;
+}
+
+.team-showcase h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+/* Blog & Single Post Styling */
+.blog-header, .archive-header, .search-header {
+    padding: 80px 0;
+    background: #f8fafc;
+    text-align: center;
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2.5rem;
+    padding: 60px 0;
+}
+
+.blog-post {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: transform 0.3s;
+}
+
+.blog-post:hover {
+    transform: translateY(-5px);
+}
+
+.post-image-container img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+}
+
+.post-content {
+    padding: 2rem;
+}
+
+.post-meta {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin-bottom: 1rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.post-header {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.featured-image {
+    margin-top: 2rem;
+}
+
+.featured-image img {
+    max-width: 100%;
+    border-radius: 20px;
+}
+
+.content-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.post-navigation {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 0;
+    border-top: 1px solid #e2e8f0;
+    margin-top: 40px;
+}
+
+.search-form-large {
+    display: flex;
+    max-width: 600px;
+    margin: 2rem auto;
+    gap: 1rem;
+}
+
+.search-form-large input {
+    flex: 1;
+    padding: 12px 20px;
+    border: 1px solid #e2e8f0;
+    border-radius: 40px;
+}
+
+.search-item {
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.search-url {
+    font-size: 0.85rem;
+    color: #10b981;
+    margin-bottom: 0.5rem;
+}
+
 /* 404 Error Component styling layouts */
 .error-404 {
     padding: 80px 0;

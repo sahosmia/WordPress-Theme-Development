@@ -1,33 +1,10 @@
-<?php
-/**
- * Alternative version with character limit and line control
- */
-
-// Function to get limited excerpt
-function get_limited_excerpt($limit = 150) { // 150 characters = approx 2-3 lines
-    $excerpt = get_the_excerpt();
-    if (empty($excerpt)) {
-        $excerpt = get_the_content();
-    }
-    
-    $excerpt = strip_shortcodes($excerpt);
-    $excerpt = strip_tags($excerpt);
-    
-    if (strlen($excerpt) > $limit) {
-        $excerpt = substr($excerpt, 0, $limit) . '...';
-    }
-    
-    return $excerpt;
-}
-?>
-
 <article id="post-<?php the_ID(); ?>" <?php post_class('blog-post'); ?>>
     <div class="post-thumbnail">
         <a href="<?php the_permalink(); ?>">
             <?php if (has_post_thumbnail()) : ?>
-                <?php the_post_thumbnail('large', ['class' => 'featured-image', 'alt' => get_the_title()]); ?>
+                <?php the_post_thumbnail('large', ['class' => 'featured-image', 'alt' => the_title_attribute(['echo' => false])]); ?>
             <?php else : ?>
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/default.png" 
+                <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/default.png" 
                      alt="Default Image" 
                      class="featured-image">
             <?php endif; ?>
@@ -43,13 +20,13 @@ function get_limited_excerpt($limit = 150) { // 150 characters = approx 2-3 line
                     if (!empty($categories)) {
                         echo '<a href="' . esc_url(get_category_link($categories[0]->term_id)) . '">' . esc_html($categories[0]->name) . '</a>';
                     } else {
-                        echo '<a href="#">Uncategorized</a>';
+                        echo '<a href="#">' . esc_html__('Uncategorized', 'your-textdomain') . '</a>';
                     }
                     ?>
                 </span>
                 <span class="post-date">
                     <i class="far fa-calendar-alt"></i> 
-                    <?php echo get_the_date('F j, Y'); ?>
+                    <?php echo esc_html(get_the_date('F j, Y')); ?>
                 </span>
             </div>
             
@@ -76,7 +53,8 @@ function get_limited_excerpt($limit = 150) { // 150 characters = approx 2-3 line
             if (is_single()) {
                 the_content();
             } else {
-                echo '<p>' . get_limited_excerpt(150) . '</p>'; // 150 characters = 2-3 lines
+                // esc_html ব্যবহার করে এক্সসার্প্ট প্রিন্ট করা হয়েছে
+                echo '<p>' . esc_html(get_limited_excerpt(150)) . '</p>'; 
             }
             ?>
         </div>

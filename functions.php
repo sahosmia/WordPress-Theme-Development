@@ -15,6 +15,8 @@ require get_template_directory() . '/inc/enqueue_style_script.php';
 
 
 
+
+
 function my_theme_register_team_cpt() {
     $labels = array(
         'name'               => _x( 'Team Members', 'post type general name', 'my-theme' ),
@@ -102,3 +104,21 @@ function my_theme_save_team_member_meta( $post_id ) {
     }
 }
 add_action( 'save_post_team_member', 'my_theme_save_team_member_meta' );
+
+
+function get_limited_excerpt($limit = 150) {
+    $excerpt = get_the_excerpt();
+    if (empty($excerpt)) {
+        $excerpt = get_the_content();
+    }
+    
+    $excerpt = strip_shortcodes($excerpt);
+    $excerpt = strip_tags($excerpt);
+    
+    // বাংলা বা অন্যান্য ভাষার জন্য mb_strlen এবং mb_substr ব্যবহার করা হয়েছে
+    if (mb_strlen($excerpt, 'UTF-8') > $limit) {
+        $excerpt = mb_substr($excerpt, 0, $limit, 'UTF-8') . '...';
+    }
+    
+    return $excerpt;
+}

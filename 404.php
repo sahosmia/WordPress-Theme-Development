@@ -10,8 +10,8 @@
                     <div class="error-number">4</div>
                 </div>
                 
-                <h1>Oops! Page Not Found</h1>
-                <p>We searched high and low, but couldn't find the page you're looking for. It might have been moved, deleted, or never existed.</p>
+                <h1 class="selector-404-title"><?php echo esc_html(get_theme_mod('my_theme_404_title', 'Oops! Page Not Found')); ?></h1>
+                <p class="selector-404-description"><?php echo esc_html(get_theme_mod('my_theme_404_description', "We searched high and low, but couldn't find the page you're looking for. It might have been moved, deleted, or never existed.")); ?></p>
                 
                 <div class="error-actions">
                     <a href="index.php" class="btn-primary">🏠 Back to Homepage</a>

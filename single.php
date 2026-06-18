@@ -1,39 +1,37 @@
 <?php get_header(); ?>
 <main>
-    <section class="blog-header">
+    <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+    <section class="post-header">
         <div class="container">
-            <h1>Our Blog</h1>
-            <p>Latest insights, tutorials, and industry updates</p>
+            <div class="post-meta">
+                <span>📅 <?php echo get_the_date(); ?></span>
+                <span>🏷️ <?php the_category(', '); ?></span>
+            </div>
+            <h1><?php the_title(); ?></h1>
+            <?php if (has_post_thumbnail()) : ?>
+                <div class="featured-image">
+                    <?php the_post_thumbnail('full'); ?>
+                </div>
+            <?php endif; ?>
         </div>
     </section>
 
-    <section class="blog-content">
+    <section class="post-content">
         <div class="container">
-            <div class="blog-grid">
-                <?php for($i=1; $i<=6; $i++): ?>
-                <article class="blog-post">
-                    <div class="post-image">📝</div>
-                    <div class="post-content">
-                        <div class="post-meta">
-                            <span>📅 March <?= $i ?>, 2026</span>
-                            <span>🏷️ Technology</span>
-                        </div>
-                        <h2>How AI is Transforming IT Services in 2026</h2>
-                        <p>Discover the latest AI trends and how they're revolutionizing the IT industry...</p>
-                        <a href="single.php?id=<?= $i ?>" class="read-more">Read More →</a>
-                    </div>
-                </article>
-                <?php endfor; ?>
+            <div class="content-wrapper">
+                <?php the_content(); ?>
             </div>
             
-            <div class="pagination">
-                <a href="#" class="page-link">Previous</a>
-                <a href="#" class="page-link active">1</a>
-                <a href="#" class="page-link">2</a>
-                <a href="#" class="page-link">3</a>
-                <a href="#" class="page-link">Next</a>
+            <div class="post-navigation">
+                <div class="nav-previous"><?php previous_post_link('%link', '← Previous Post'); ?></div>
+                <div class="nav-next"><?php next_post_link('%link', 'Next Post →'); ?></div>
             </div>
+            
+            <?php if (comments_open() || get_comments_number()) :
+                comments_template();
+            endif; ?>
         </div>
     </section>
+    <?php endwhile; endif; ?>
 </main>
 <?php get_footer(); ?>
