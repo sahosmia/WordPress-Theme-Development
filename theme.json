@@ -1,0 +1,80 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 2,
+  "settings": {
+    "blocks": {
+      "core/navigation": {
+        "typography": {
+          "customFontSize": true
+        },
+        "color": {
+          "palette": true
+        }
+      }
+    },
+    "color": {
+      "palette": [
+        {
+          "slug": "primary",
+          "color": "#667eea",
+          "name": "Primary Color"
+        },
+        {
+          "slug": "secondary",
+          "color": "#764ba2",
+          "name": "Secondary Color"
+        }
+      ],
+      "gradients":[],
+      "link": true,
+      "custom": true
+    },
+    "typography": {
+      "fontSizes": [
+        {
+          "slug": "large",
+          "size": "36px",
+          "name": "Large"
+        },
+        {
+          "slug": "small",
+          "size": "0.875rem",
+          "name": "Small"
+        }
+      ], 
+      "fontWeight": true,
+      "textTransform": true,
+      "letterSpacing": true
+    },
+    "layout": {
+      "contentSize": "800px",
+      "wideSize": "1200px"
+    },
+     "spacing": {
+      "padding": true,
+      "margin": true,
+      "units": ["px", "em", "rem", "%"],
+      "blockGap": true
+    }
+  },
+  "styles": {
+    "blocks": {
+      "core/heading": {
+        "typography": {
+          "fontWeight": "bold"
+        }
+      },
+      "core/navigation": {
+        "typography": {
+          "fontSize": "16px"
+        },
+        "color": {
+          "text": "var(--wp--custom--color--primary)"
+        }
+      }
+    }
+  },
+  "customTemplates": {},
+  "templateParts": {},
+  "patterns": []
+}
