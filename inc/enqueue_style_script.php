@@ -45,6 +45,20 @@ function my_awesome_theme_customizer_assets() {
 // Specific hook dedicated for Customizer live preview window
 add_action('customize_preview_init', 'my_awesome_theme_customizer_assets');
 
+/**
+ * Enqueue Customizer Controls Script
+ */
+function my_awesome_theme_customizer_controls_assets() {
+    wp_enqueue_script(
+        'my-theme-customizer-controls',
+        get_theme_file_uri('assets/js/customizer-controls.js'),
+        array('jquery', 'customize-controls'),
+        '1.0.0',
+        true
+    );
+}
+add_action('customize_controls_enqueue_scripts', 'my_awesome_theme_customizer_controls_assets');
+
 
 
 

@@ -27,6 +27,15 @@
     });
   });
 
+  // Header Layout
+  wp.customize("my_theme_header_layout", function (value) {
+    value.bind(function (newval) {
+      $(".selector-header")
+        .removeClass("header-standard header-centered header-stacked")
+        .addClass("header-" + newval);
+    });
+  });
+
   // Logo Text
   wp.customize("my_theme_logo_text", function (value) {
     value.bind(function (newval) {
@@ -237,19 +246,6 @@
     });
   });
 
-  // FAQ Items
-  for (let i = 1; i <= 4; i++) {
-    wp.customize("my_theme_faq_q" + i, function (value) {
-      value.bind(function (newval) {
-        $(".selector-faq-q" + i).text(newval);
-      });
-    });
-    wp.customize("my_theme_faq_a" + i, function (value) {
-      value.bind(function (newval) {
-        $(".selector-faq-a" + i).html(newval);
-      });
-    });
-  }
 
   // Testimonials Tag
   wp.customize("my_theme_testimonials_tag", function (value) {
@@ -386,6 +382,41 @@
   wp.customize("my_theme_404_description", function (value) {
     value.bind(function (newval) {
       $(".selector-404-description").text(newval);
+    });
+  });
+
+  // Portfolio Tag
+  wp.customize("my_theme_portfolio_tag", function (value) {
+    value.bind(function (newval) {
+      $(".selector-portfolio-tag").text(newval);
+    });
+  });
+
+  // Portfolio Title
+  wp.customize("my_theme_portfolio_title", function (value) {
+    value.bind(function (newval) {
+      $(".selector-portfolio-title").text(newval);
+    });
+  });
+
+  // Portfolio Subtitle
+  wp.customize("my_theme_portfolio_subtitle", function (value) {
+    value.bind(function (newval) {
+      $(".selector-portfolio-subtitle").text(newval);
+    });
+  });
+
+  // Contact Page Hero Title
+  wp.customize("my_theme_contact_page_hero_title", function (value) {
+    value.bind(function (newval) {
+      $(".selector-contact-page-hero-title").text(newval);
+    });
+  });
+
+  // Contact Page Hero Subtitle
+  wp.customize("my_theme_contact_page_hero_subtitle", function (value) {
+    value.bind(function (newval) {
+      $(".selector-contact-page-hero-subtitle").text(newval);
     });
   });
 

@@ -11,6 +11,7 @@ $wp_customize->add_section('my_theme_header_section', array(
 // Header Layout
 $wp_customize->add_setting('my_theme_header_layout', array(
     'default'           => 'standard',
+    'transport'         => 'postMessage',
     'sanitize_callback' => 'sanitize_text_field',
 ));
 $wp_customize->add_control('my_theme_header_layout', array(

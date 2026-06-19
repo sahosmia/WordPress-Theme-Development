@@ -23,6 +23,7 @@ function my_theme_customizer_register($wp_customize)
     require_once $customizer_path . 'hero-customize.php';
     require_once $customizer_path . 'about-customize.php';
     require_once $customizer_path . 'services-customize.php';
+    require_once $customizer_path . 'portfolio-customize.php';
     require_once $customizer_path . 'cta-customize.php';
     require_once $customizer_path . 'why-choose-us-customize.php';
     require_once $customizer_path . 'testimonials-customize.php';
@@ -32,5 +33,6 @@ function my_theme_customizer_register($wp_customize)
     require_once $customizer_path . 'footer-customize.php';
     require_once $customizer_path . 'about-page-customize.php';
     require_once $customizer_path . 'error-404-customize.php';
+    require_once $customizer_path . 'contact-page-customize.php';
 }
 add_action('customize_register', 'my_theme_customizer_register');
