@@ -19,21 +19,9 @@ $wp_customize->add_section('my_theme_footer_section', array(
         'type'     => 'textarea',
     ));
 
-    // Footer Description
-    $wp_customize->add_setting('my_theme_footer_description', array(
-        'default'           => __('Professional WordPress theme development for modern businesses.', 'my-theme'),
-        'transport'         => 'postMessage',
-        'sanitize_callback' => 'wp_kses_post',
-    ));
-    $wp_customize->add_control('my_theme_footer_description', array(
-        'label'    => __('Footer Description', 'my-theme'),
-        'section'  => 'my_theme_footer_section',
-        'type'     => 'textarea',
-    ));
-
     // Footer Background Color
     $wp_customize->add_setting('my_theme_footer_bg', array(
-        'default'           => '#1e293b',
+        'default'           => '#0f172a',
         'transport'         => 'postMessage',
         'sanitize_callback' => 'sanitize_hex_color',
     ));
@@ -42,34 +30,3 @@ $wp_customize->add_section('my_theme_footer_section', array(
         'section'  => 'my_theme_footer_section',
         'settings' => 'my_theme_footer_bg',
     )));
-
-    // Social Media Links
-    $wp_customize->add_setting('my_theme_facebook_url', array(
-        'default'           => '#',
-        'sanitize_callback' => 'esc_url_raw',
-    ));
-    $wp_customize->add_control('my_theme_facebook_url', array(
-        'label'    => __('Facebook URL', 'my-theme'),
-        'section'  => 'my_theme_footer_section',
-        'type'     => 'url',
-    ));
-
-    $wp_customize->add_setting('my_theme_twitter_url', array(
-        'default'           => '#',
-        'sanitize_callback' => 'esc_url_raw',
-    ));
-    $wp_customize->add_control('my_theme_twitter_url', array(
-        'label'    => __('Twitter URL', 'my-theme'),
-        'section'  => 'my_theme_footer_section',
-        'type'     => 'url',
-    ));
-
-    $wp_customize->add_setting('my_theme_linkedin_url', array(
-        'default'           => '#',
-        'sanitize_callback' => 'esc_url_raw',
-    ));
-    $wp_customize->add_control('my_theme_linkedin_url', array(
-        'label'    => __('LinkedIn URL', 'my-theme'),
-        'section'  => 'my_theme_footer_section',
-        'type'     => 'url',
-    ));

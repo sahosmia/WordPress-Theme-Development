@@ -42,8 +42,21 @@ get_header(); ?>
                     <div class="social-connect">
                         <h3>Follow Us</h3>
                         <div class="social-icons">
-                            <!-- Placeholder for social icons -->
-                            <span>FB</span> <span>TW</span> <span>LI</span> <span>IN</span>
+                            <?php
+                            $socials = array(
+                                'facebook'  => 'fa-brands fa-facebook-f',
+                                'twitter'   => 'fa-brands fa-twitter',
+                                'linkedin'  => 'fa-brands fa-linkedin-in',
+                                'instagram' => 'fa-brands fa-instagram',
+                                'whatsapp'  => 'fa-brands fa-whatsapp',
+                            );
+                            foreach ($socials as $id => $icon_class) {
+                                $url = get_theme_mod('my_theme_' . $id . '_url');
+                                if ($url) {
+                                    echo '<a href="' . esc_url($url) . '" class="social-icon-' . $id . '" target="_blank"><span><i class="' . esc_attr($icon_class) . '"></i></span></a>';
+                                }
+                            }
+                            ?>
                         </div>
                     </div>
                 </div>
@@ -67,7 +80,7 @@ get_header(); ?>
     </section>
 
     <?php 
-    $map_code = get_theme_mod('my_theme_contact_page_map');
+    $map_code = get_theme_mod('my_theme_contact_map');
     if ($map_code) : ?>
         <section class="contact-map">
             <div class="map-container">

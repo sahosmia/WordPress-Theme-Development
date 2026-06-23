@@ -22,13 +22,23 @@ require get_template_directory() . '/inc/enqueue_style_script.php';
 
 function my_theme_widgets_init() {
     register_sidebar( array(
-        'name'          => __( 'Footer Sidebar 1', 'my-awesome-classic-theme' ),
+        'name'          => __( 'Footer Sidebar 1 (Quick Links)', 'my-theme' ),
         'id'            => 'footer-sidebar-1', 
-        'description'   => __( 'Widgets added here will appear in the footer.', 'my-awesome-classic-theme' ),
+        'description'   => __( 'Widgets added here will appear in the second column of the footer.', 'my-theme' ),
         'before_widget' => '<section id="%1$s" class="widget %2$s">',
         'after_widget'  => '</section>',
-        'before_title'  => '<h2 class="widget-title">',
-        'after_title'   => '</h2>',
+        'before_title'  => '<h3 class="widget-title">',
+        'after_title'   => '</h3>',
+    ) );
+
+    register_sidebar( array(
+        'name'          => __( 'Footer Sidebar 2 (Latest Posts)', 'my-theme' ),
+        'id'            => 'footer-sidebar-2', 
+        'description'   => __( 'Widgets added here will appear in the third column of the footer.', 'my-theme' ),
+        'before_widget' => '<section id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</section>',
+        'before_title'  => '<h3 class="widget-title">',
+        'after_title'   => '</h3>',
     ) );
 }
 add_action( 'widgets_init', 'my_theme_widgets_init' );

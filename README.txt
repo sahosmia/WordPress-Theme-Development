@@ -3,8 +3,29 @@ questions
 2. esc_url
 
 
+TODO: 
+All Page Banner disign
+contact page make in menu
 
-heirchy
-=>front-page.html -> home.html -> index.html
-=>custom.html -> page-about.html -> page-5.html -> page.html -> singular.html -> index.html
-=>single-movie-jawan.html -> single-movie.html -> index.html
+
+Learning: 
+Hooks (Action + Filter)
+Theme Supports
+Menu + Sidebar + Widgets
+WP_Query (Advanced)
+Custom Post Type
+Custom Taxonomy
+Custom Fields (ACF)
+AJAX
+Security
+WooCommerce
+REST API
+Gutenberg Block Development
+Full Site Editing (theme.json)
+REST API
+ThemeForest Standards
+
+
+OOP Theme Structure
+
+⭐⭐⭐⭐⭐ Composer

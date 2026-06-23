@@ -2,6 +2,14 @@
 
 function my_awesome_theme_assets()
 {
+    // Enqueue Font Awesome CDN
+    wp_enqueue_style(
+        'font-awesome',
+        'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css',
+        array(),
+        '6.5.1'
+    );
+
     // Enqueue the main style.css file
     wp_enqueue_style(
         'my-theme-main-style', 
@@ -80,3 +88,43 @@ function my_theme_output_dynamic_colors() {
 }
 // Hook this structural inline configuration output block into the wp_head runtime step
 add_action( 'wp_head', 'my_theme_output_dynamic_colors' );
+
+
+
+function my_login_logo() {
+    $logo_url = '';
+
+    if ( has_custom_logo() ) {
+        $custom_logo_id = get_theme_mod( 'custom_logo' );
+        $logo_data      = wp_get_attachment_image_src( $custom_logo_id , 'full' );
+        
+        if ( ! empty( $logo_data ) ) {
+            $logo_url = $logo_data[0]; 
+        }
+    } else {
+        $logo_url = get_stylesheet_directory_uri() . '/assets/images/site-logo.png';
+    }
+    ?>
+    <style type="text/css">
+        #login h1 a, .login h1 a {
+            background-image: url('<?php echo esc_url( $logo_url ); ?>') !important;
+            height: 80px;
+            width: 320px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            padding-bottom: 30px;
+        }
+    </style>
+    <?php
+}
+add_action( 'login_enqueue_scripts', 'my_login_logo' );
+
+function my_login_logo_url() {
+    return home_url( '/' ); 
+}
+add_filter( 'login_headerurl', 'my_login_logo_url' );
+
+function my_login_logo_url_title() {
+    return get_bloginfo( 'name' );
+}
+add_filter( 'login_headertext', 'my_login_logo_url_title' );

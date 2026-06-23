@@ -42,39 +42,3 @@ $wp_customize->add_control('my_theme_contact_desc', array(
     'section'  => 'my_theme_contact_section',
     'type'     => 'textarea',
 ));
-
-// Phone
-$wp_customize->add_setting('my_theme_contact_phone', array(
-    'default'           => '+1 (555) 123-4567',
-    'transport'         => 'postMessage',
-    'sanitize_callback' => 'sanitize_text_field',
-));
-$wp_customize->add_control('my_theme_contact_phone', array(
-    'label'    => __('Phone Number', 'my-theme'),
-    'section'  => 'my_theme_contact_section',
-    'type'     => 'text',
-));
-
-// Email
-$wp_customize->add_setting('my_theme_contact_email', array(
-    'default'           => 'hello@techsolutions.com',
-    'transport'         => 'postMessage',
-    'sanitize_callback' => 'sanitize_email',
-));
-$wp_customize->add_control('my_theme_contact_email', array(
-    'label'    => __('Email Address', 'my-theme'),
-    'section'  => 'my_theme_contact_section',
-    'type'     => 'email',
-));
-
-// Address
-$wp_customize->add_setting('my_theme_contact_address', array(
-    'default'           => '123 Tech Street, Silicon Valley, CA',
-    'transport'         => 'postMessage',
-    'sanitize_callback' => 'sanitize_text_field',
-));
-$wp_customize->add_control('my_theme_contact_address', array(
-    'label'    => __('Office Address', 'my-theme'),
-    'section'  => 'my_theme_contact_section',
-    'type'     => 'text',
-));

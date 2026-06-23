@@ -31,13 +31,3 @@ $wp_customize->add_control('my_theme_contact_page_hero_subtitle', array(
     'type'     => 'text',
 ));
 
-// Map Embed Code
-$wp_customize->add_setting('my_theme_contact_page_map', array(
-    'default'           => '',
-    'sanitize_callback' => 'wp_kses_post',
-));
-$wp_customize->add_control('my_theme_contact_page_map', array(
-    'label'    => __('Google Map Embed Code', 'my-theme'),
-    'section'  => 'my_theme_contact_page_section',
-    'type'     => 'textarea',
-));

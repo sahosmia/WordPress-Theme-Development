@@ -18,6 +18,7 @@ function my_theme_customizer_register($wp_customize)
     ));
 
     // Load separate customizer files
+    require_once $customizer_path . 'contact-social-customize.php';
     require_once $customizer_path . 'colors-customize.php';
     require_once $customizer_path . 'header-customize.php';
     require_once $customizer_path . 'hero-customize.php';
